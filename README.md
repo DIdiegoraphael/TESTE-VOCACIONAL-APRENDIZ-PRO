@@ -11,12 +11,17 @@
   body {
     background-color: #0b1528;
     color: #f1f5f9;
-    min-height: 100vh;
+    min-height: 110vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 40px 20px;
+    padding: 60px 20px;
+    
+    /* Força o conteúdo a subir e cobrir fisicamente a barra azul externa */
+    margin-top: -120px !important; 
+    position: relative;
+    z-index: 99999;
   }
 
   .main-container {
@@ -208,23 +213,22 @@
 
 <div class="main-container">
   
-  <!-- BÚSSOLA IDENTIFICADORA DO SEU PROJETO -->
-  <div class="avatar-badge"></div>
+  <div class="avatar-badge" style="margin-top: 40px;"></div>
 
-  <!-- REMOVIDO O TÍTULO TEXTUAL DAQUI PARA ELIMINAR DUPLICIDADE COM A BARRA DA FERRAMENTA -->
   <p class="tagline">Descubra a sua âncora de carreira e se desenvolva profissionalmente com propósito</p>
 
   <!-- TELA 1: BOAS-VINDAS -->
   <div id="screen-welcome" class="screen-panel active">
     
     <div class="content-card">
-      <h2>O que é teste vocacional Aprendiz Pro?</h2>
+      <!-- Título Corrigido Conforme Solicitado -->
+      <h2>O que é o teste vocacional Aprendiz Pro?</h2>
       <p>O nosso teste vocacional é um teste orientado pelo conceito das Âncoras de Carreira, modelo criado pelo psicólogo organizacional Edgar H. Schein, do MIT. Elas representam os valores, motivações e competências que guiam suas decisões profissionais ao longo da vida. Este teste identifica qual das oito âncoras é dominante no seu perfil, ajudando você a fazer escolhas de carreira mais alinhadas com quem você realmente é.</p>
     </div>
 
     <div class="content-card" style="border-left: 6px solid #f4c542;">
       <h3>Como responder</h3>
-      <p>Não existem respostas certas ou erradas. Responda de forma espontânea, pensando na sua carreira ideal e nos seus valores — não apenas no seu emprego atual. Leve cerca de 10 minutos para completar as 40 questões.</p>
+      <p>Não existem respostas certas ou erradas. Responda de forma espontânea, thinking na sua carreira ideal e nos seus valores — não apenas no seu emprego atual. Leve cerca de 10 minutos para completar as 40 questões.</p>
     </div>
 
     <div class="content-card">
@@ -294,7 +298,7 @@
   const ancorasNomes = {
     0: "Competência Técnica / Funcional", 1: "Competência Gerencial Geral", 2: "Autonomia / Independência", 
     3: "Segurança / Estabilidade", 4: "Criatividade Empreendedora", 
-    5: "Dedicação a uma Causa / Service", 6: "Puro Desafio", 7: "Estilo de Vida"
+    5: "Dedicação a uma Causa / Serviço", 6: "Puro Desafio", 7: "Estilo de Vida"
   };
 
   const questions = [
@@ -316,4 +320,3 @@
     { text: "Equilibrar trabalho e lazer é mais importante do que uma promoção.", cat: 7 },
     { text: "Focar em resolver problemas técnicos complexos é o meu ponto forte.", cat: 0 },
     { text: "Acho estimulante monitorar metas e a produtividade de outras pessoas.", cat: 1 },
-    { text: "Fico mais feliz quando trabalho sozinho sem supervisão direta.", cat: 2 },
