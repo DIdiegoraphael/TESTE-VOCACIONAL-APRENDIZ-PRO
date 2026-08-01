@@ -11,17 +11,12 @@
   body {
     background-color: #0b1528;
     color: #f1f5f9;
-    min-height: 110vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 60px 20px;
-    
-    /* Força o conteúdo a subir e cobrir fisicamente a barra azul externa */
-    margin-top: -120px !important; 
-    position: relative;
-    z-index: 99999;
+    padding: 50px 20px;
   }
 
   .main-container {
@@ -40,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
   }
 
@@ -49,11 +44,24 @@
     font-size: 34px;
   }
 
+  /* Seu título restaurado com fonte premium contemporânea */
+  .title-app {
+    color: #ffffff;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
   .tagline {
     text-align: center;
     font-size: 18px;
     color: #94a3b8;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
     max-width: 600px;
     line-height: 1.5;
     font-weight: 400;
@@ -213,22 +221,25 @@
 
 <div class="main-container">
   
-  <div class="avatar-badge" style="margin-top: 40px;"></div>
+  <div class="avatar-badge"></div>
 
+  <!-- SEU TÍTULO DE VOLTA COM ALINHAMENTO CORRETO -->
+  <h1 class="title-app">TESTE VOCACIONAL<br>APRENDIZ PRO</h1>
+  
   <p class="tagline">Descubra a sua âncora de carreira e se desenvolva profissionalmente com propósito</p>
 
   <!-- TELA 1: BOAS-VINDAS -->
   <div id="screen-welcome" class="screen-panel active">
     
     <div class="content-card">
-      <!-- Título Corrigido Conforme Solicitado -->
+      <!-- Título da caixa corrigido -->
       <h2>O que é o teste vocacional Aprendiz Pro?</h2>
-      <p>O nosso teste vocacional é um teste orientado pelo conceito das Âncoras de Carreira, modelo criado pelo psicólogo organizacional Edgar H. Schein, do MIT. Elas representam os valores, motivações e competências que guiam suas decisões profissionais ao longo da vida. Este teste identifica qual das oito âncoras é dominante no seu perfil, ajudando você a fazer escolhas de carreira mais alinhadas com quem você realmente é.</p>
+      <p>O nosso teste vocacional é um teste orientado pelo conceito das Âncoras de Carreira, modelo criado pelo psicólogo organizacional Edgar H. Schein, do MIT. Elas representam os valores, motivações e competências que guiam suas decisões profissionais ao longo da vida. Este teste identifica qual das oito âncoras é dominante no seu perfil, ajudando você a fazer choices de carreira mais alinhadas com quem você realmente é.</p>
     </div>
 
     <div class="content-card" style="border-left: 6px solid #f4c542;">
       <h3>Como responder</h3>
-      <p>Não existem respostas certas ou erradas. Responda de forma espontânea, thinking na sua carreira ideal e nos seus valores — não apenas no seu emprego atual. Leve cerca de 10 minutos para completar as 40 questões.</p>
+      <p>Não existem respostas certas ou erradas. Responda de forma espontânea, pensando na sua carreira ideal e nos seus valores — não apenas no seu emprego atual. Leve cerca de 10 minutos para completar as 40 questões.</p>
     </div>
 
     <div class="content-card">
@@ -317,6 +328,3 @@
     { text: "Quero criar produtos ou serviços que tenham a minha identidade.", cat: 4 },
     { text: "Não trabalharia em uma instituição que vai contra meus princípios morais.", cat: 5 },
     { text: "Fico entediado com facilidade se as tarefas forem rotineiras.", cat: 6 },
-    { text: "Equilibrar trabalho e lazer é mais importante do que uma promoção.", cat: 7 },
-    { text: "Focar em resolver problemas técnicos complexos é o meu ponto forte.", cat: 0 },
-    { text: "Acho estimulante monitorar metas e a produtividade de outras pessoas.", cat: 1 },
