@@ -1,4 +1,3 @@
-<link href="https://googleapis.com" rel="stylesheet">
 
 <style>
   * {
@@ -234,12 +233,12 @@
     <div class="content-card">
       <!-- Título da caixa corrigido -->
       <h2>O que é o teste vocacional Aprendiz Pro?</h2>
-      <p>O nosso teste vocacional é um teste orientado pelo conceito das Âncoras de Carreira, modelo criado pelo psicólogo organizacional Edgar H. Schein, do MIT. Elas representam os valores, motivações e competências que guiam suas decisões profissionais ao longo da vida. Este teste identifica qual das oito âncoras é dominante no seu perfil, ajudando você a fazer choices de carreira mais alinhadas com quem você realmente é.</p>
+      <p>O nosso teste vocacional é um teste orientado pelo conceito das Âncoras de Carreira, modelo criado pelo psicólogo organizacional Edgar H. Schein, do MIT. Elas representam os valores, [...]
     </div>
 
     <div class="content-card" style="border-left: 6px solid #f4c542;">
       <h3>Como responder</h3>
-      <p>Não existem respostas certas ou erradas. Responda de forma espontânea, pensando na sua carreira ideal e nos seus valores — não apenas no seu emprego atual. Leve cerca de 10 minutos para completar as 40 questões.</p>
+      <p>Não existem respostas certas ou erradas. Responda de forma espontânea, pensando na sua carreira ideal e nos seus valores — não apenas no seu emprego atual. Leve cerca de 10 minutos [...]
     </div>
 
     <div class="content-card">
@@ -328,3 +327,4 @@
     { text: "Quero criar produtos ou serviços que tenham a minha identidade.", cat: 4 },
     { text: "Não trabalharia em uma instituição que vai contra meus princípios morais.", cat: 5 },
     { text: "Fico entediado com facilidade se as tarefas forem rotineiras.", cat: 6 },
+
