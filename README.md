@@ -3,145 +3,300 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aprendiz Pro</title>
-  <script src="https://tailwindcss.com"></script>
+  <title>Teste Vocacional Aprendiz Pro</title>
   <link href="https://googleapis.com" rel="stylesheet">
-  <script src="https://jsdelivr.net"></script>
   <style>
-    body { font-family: 'Space Grotesk', sans-serif; background: #0b1a3a; }
-    .font-arcade { font-family: 'Press Start 2P', monospace; text-shadow: 2px 2px 0px #000; }
-    .screen { display: none; }
-    .screen.active { display: block; animation: slideUp 0.4s ease-out; }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .likert-btn { transition: all 0.2s ease; background: #162a56; border: 1px solid #233d7a; color: #e2e8f0; }
-    .likert-btn:hover { background: #1e3a75; border-color: #f4c542; color: #fff; }
-    .likert-btn.selected { background: #f4c542; color: #0b1a3a; border-color: #f4c542; font-weight: 700; }
+    /* CSS CLONE DA SUA IMAGEM DE REFERÊNCIA */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #123a8c; /* Azul Royal idêntico ao print */
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px;
+    }
+    .wrapper {
+      width: 100%;
+      max-width: 680px; /* Largura ideal dos cards */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .icon-top {
+      width: 50px;
+      height: 50px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    /* Seta estilizada simulando o ícone do bússola */
+    .icon-top::after {
+      content: "🧭";
+      font-size: 24px;
+    }
+    .font-arcade {
+      font-family: 'Press Start 2P', monospace;
+      color: #ffffff;
+      text-align: center;
+      font-size: 24px;
+      line-height: 1.4;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #eaf3ff;
+      margin-bottom: 35px;
+      font-weight: 400;
+    }
+    .screen {
+      display: none;
+      width: 100%;
+    }
+    .screen.active {
+      display: block;
+    }
+    /* Estilo exato dos blocos brancos */
+    .card-white {
+      background-color: #f8fcff;
+      color: #0a0a0a;
+      border-radius: 16px;
+      padding: 24px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    .card-white h2, .card-white h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #0a0a0a;
+    }
+    .card-white p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #0a0a0a;
+      font-weight: 500;
+    }
+    .card-white label {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0a0a0a;
+      margin-bottom: 10px;
+    }
+    .card-white input {
+      width: 100%;
+      background-color: #f8fcff;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: #0a0a0a;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .card-white input:focus {
+      border-color: #123a8c;
+    }
+    .input-small {
+      width: 100% !important;
+      max-width: 250px;
+    }
+    .hint-text {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+    /* Botão Amarelo Idêntico à imagem */
+    .btn-container {
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .btn-yellow {
+      background-color: #f4c542;
+      color: #0a0a0a;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 36px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      display: inline-block;
+    }
+    .btn-yellow:hover {
+      background-color: #d9a900;
+    }
+    /* Estilo do Quiz alinhado com o print */
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #eaf3ff;
+      margin-bottom: 20px;
+    }
+    .progress-bg {
+      width: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background-color: #f4c542;
+      width: 2.5%;
+      transition: width 0.3s;
+    }
+    .likert-btn {
+      width: 100%;
+      background-color: #f8fcff;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px 20px;
+      color: #0a0a0a;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+    .likert-btn:hover {
+      background-color: #eaf3ff;
+      border-color: #123a8c;
+    }
+    .spinner {
+      width: 45px;
+      height: 45px;
+      border: 4px solid rgba(255,255,255,0.1);
+      border-top: 4px solid #f4c542;
+      border-radius: 50%;
+      margin: 30px auto;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
-<body class="min-h-screen text-slate-100 flex items-center justify-center p-4">
+<body>
 
-  <div class="w-full max-w-xl bg(#12234a) bg-opacity-60 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-slate-700/50 shadow-2xl">
+  <div class="wrapper">
     
-    <!-- TELA 1: BOAS-VINDAS -->
-    <div id="screen-welcome" class="screen active space-y-6">
-      <div class="text-center space-y-3">
-        <h1 class="font-arcade text-[#f4c542] text-base md:text-lg tracking-wider leading-relaxed">
-          TESTE VOCACIONAL<br>APRENDIZ PRO
-        </h1>
-        <p class="text-xs md:text-sm text-slate-400">Descubra sua âncora de carreira com propósito</p>
+    <!-- ÍCONE REDONDO SUPERIOR -->
+    <div class="icon-top"></div>
+
+    <!-- TÍTULO ARCADE GAMER -->
+    <h1 class="font-arcade">TESTE VOCACIONAL<br>APRENDIZ PRO</h1>
+    <p class="subtitle">Descubra a sua âncora de carreira e se desenvolva profissionalmente com propósito</p>
+
+    <!-- TELA 1: BOAS-VINDAS (ESTRUTURA EXATA DO SEU PRINT) -->
+    <div id="screen-welcome" class="screen active">
+      
+      <div class="card-white">
+        <h2>O que é teste vocacional Aprendiz Pro?</h2>
+        <p>O nosso teste vocacional é um teste orientado pelo conceito das Âncoras de Carreira, modelo criado pelo psicólogo organizacional Edgar H. Schein, do MIT. Elas representam os valores, motivações e competências que guiam suas decisões profissionais ao longo da vida. Este teste identifica qual das oito âncoras é dominante no seu perfil, ajudando você a fazer escolhas de carreira mais alinhadas com quem você realmente é.</p>
       </div>
 
-      <div class="bg-[#102046] rounded-2xl p-5 border border-slate-700/30 space-y-3">
-        <h2 class="text-sm font-bold text-[#f4c542] uppercase tracking-wider flex items-center gap-2">
-          <i data-lucide="terminal" class="w-4 h-4"></i> Sobre o Teste
-        </h2>
-        <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
-          Baseado no conceito internacional de Edgar Schein (MIT). Identifique seus valores e motivações profissionais dominante de forma rápida e intuitiva.
-        </p>
+      <div class="card-white" style="border-left: 4px solid #f4c542;">
+        <h3>Como responder</h3>
+        <p>Não existem respostas certas ou erradas. Responda de forma espontânea, pensando na sua carreira ideal e nos seus valores — não apenas no seu emprego atual. Leve cerca de 10 minutos para completar as 40 questões.</p>
       </div>
 
-      <!-- INPUTS MODERNOS -->
-      <div class="space-y-4">
+      <div class="card-white">
+        <div style="margin-bottom: 20px;">
+          <label>Nome do respondente (obrigatório)</label>
+          <input id="respondent-name" type="text" required>
+        </div>
+        
         <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Nome Completo</label>
-          <input id="respondent-name" type="text" placeholder="Digite seu nome..." class="w-full rounded-xl bg-[#162a56] border border-slate-700/50 px-4 py-3 outline-none text-sm text-white placeholder-slate-500 focus:border-[#f4c542] transition-all">
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Turma</label>
-          <input id="respondent-class" type="text" placeholder="Ex: t01" class="w-28 rounded-xl bg-[#162a56] border border-slate-700/50 px-4 py-3 outline-none text-sm text-white placeholder-slate-500 focus:border-[#f4c542] transition-all uppercase">
+          <label>Turma (obrigatório)</label>
+          <input id="respondent-class" type="text" placeholder="t01" class="input-small" required>
+          <div class="hint-text">Exemplo: t01</div>
         </div>
       </div>
 
-      <button onclick="startTest()" class="w-full bg-[#f4c542] hover:bg-[#e0b334] text-[#0b1a3a] font-bold text-sm tracking-widest py-4 rounded-xl shadow-lg transition-all uppercase">
-        Iniciar Missão
-      </button>
+      <div class="btn-container">
+        <button onclick="startTest()" class="btn-yellow">Iniciar Teste</button>
+      </div>
     </div>
 
-    <!-- TELA 2: CARD DO QUESTIONÁRIO -->
-    <div id="screen-quiz" class="screen space-y-6">
-      <div class="flex justify-between items-center text-xs font-bold tracking-wider text-slate-400">
-        <span id="quiz-progress-text">QUESTÃO 1 DE 40</span>
-        <div class="w-1/3 bg-slate-800 h-1.5 rounded-full overflow-hidden">
-          <div id="quiz-progress-bar" class="bg-[#f4c542] h-full transition-all duration-300" style="width: 2.5%;"></div>
+    <!-- TELA 2: QUESTIONÁRIO DIRECIONADO -->
+    <div id="screen-quiz" class="screen">
+      <div class="quiz-header">
+        <span id="quiz-progress-text">Questão 1 de 40</span>
+        <div class="progress-bg">
+          <div id="quiz-progress-bar" class="progress-bar"></div>
         </div>
       </div>
 
-      <div class="min-h-[120px] flex items-center">
-        <p id="question-text" class="text-base md:text-lg font-medium text-white leading-relaxed">Carregando pergunta...</p>
+      <div class="card-white" style="min-height: 110px; margin-bottom: 25px;">
+        <p id="question-text" style="font-size: 16px; font-weight: 600;"></p>
       </div>
 
-      <div class="grid grid-cols-1 gap-2.5">
-        <button class="likert-btn py-3.5 px-4 rounded-xl text-left text-sm flex items-center justify-between" onclick="selectScore(5)">5 - Concordo Totalmente <i data-lucide="check" class="w-4 h-4 opacity-40"></i></button>
-        <button class="likert-btn py-3.5 px-4 rounded-xl text-left text-sm flex items-center justify-between" onclick="selectScore(4)">4 - Concordo Parcialmente <i data-lucide="chevron-right" class="w-4 h-4 opacity-40"></i></button>
-        <button class="likert-btn py-3.5 px-4 rounded-xl text-left text-sm flex items-center justify-between" onclick="selectScore(3)">3 - Neutro / Não sei <i data-lucide="minus" class="w-4 h-4 opacity-40"></i></button>
-        <button class="likert-btn py-3.5 px-4 rounded-xl text-left text-sm flex items-center justify-between" onclick="selectScore(2)">2 - Discordo Parcialmente <i data-lucide="chevron-left" class="w-4 h-4 opacity-40"></i></button>
-        <button class="likert-btn py-3.5 px-4 rounded-xl text-left text-sm flex items-center justify-between" onclick="selectScore(1)">1 - Discordo Totalmente <i data-lucide="x" class="w-4 h-4 opacity-40"></i></button>
+      <div>
+        <button class="likert-btn" onclick="selectScore(5)">5 - Concordo Totalmente</button>
+        <button class="likert-btn" onclick="selectScore(4)">4 - Concordo Parcialmente</button>
+        <button class="likert-btn" onclick="selectScore(3)">3 - Neutro / Não sei</button>
+        <button class="likert-btn" onclick="selectScore(2)">2 - Discordo Parcialmente</button>
+        <button class="likert-btn" onclick="selectScore(1)">1 - Discordo Totalmente</button>
       </div>
     </div>
 
-    <!-- TELA 3: CARREGAMENTO -->
-    <div id="screen-loading" class="screen text-center py-12 space-y-4">
-      <div class="animate-spin inline-block w-8 h-8 border-4 border-[#f4c542] border-t-transparent rounded-full"></div>
-      <h2 class="text-sm font-bold tracking-widest text-slate-300 uppercase">Computando Afinidades...</h2>
+    <!-- TELA 3: PROCESSANDO -->
+    <div id="screen-loading" class="screen" style="text-align: center;">
+      <div class="spinner"></div>
+      <p style="font-weight: 500; color: #eaf3ff;">Calculando seu perfil e sincronizando os resultados...</p>
     </div>
 
-    <!-- TELA 4: RESULTADO -->
-    <div id="screen-result" class="screen text-center space-y-6">
-      <div class="inline-flex p-3 bg-emerald-500/10 rounded-full text-emerald-400">
-        <i data-lucide="award" class="w-8 h-8"></i>
-      </div>
-      <div class="space-y-1">
-        <h2 class="text-xl font-bold text-white">Perfil Concluído!</h2>
-        <p class="text-xs text-slate-400">Seus dados foram sincronizados na planilha.</p>
-      </div>
-      <div class="bg-[#102046] rounded-2xl p-6 border border-slate-700/40">
-        <span class="text-xs font-bold text-[#f4c542] uppercase tracking-widest block mb-2">Sua Âncora Dominante:</span>
-        <div id="result-anchor" class="text-base md:text-lg font-bold text-white bg-[#162a56] px-4 py-3 rounded-xl border border-slate-700/50 inline-block">Calculando...</div>
+    <!-- TELA 4: RESULTADO FINAL -->
+    <div id="screen-result" class="screen">
+      <div class="card-white" style="text-align: center;">
+        <h2 style="font-size: 22px; margin-bottom: 5px; color: #123a8c;">Teste Concluído!</h2>
+        <p style="color: #6b7280; margin-bottom: 20px;">Suas respostas foram salvas com sucesso na planilha.</p>
+        
+        <div style="background-color: #eaf3ff; border-radius: 12px; padding: 20px; display: inline-block; width: 100%;">
+          <span style="font-size: 12px; font-weight: 700; color: #123a8c; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Sua Âncora Dominante:</span>
+          <div id="result-anchor" style="font-size: 20px; font-weight: 700; color: #123a8c;">Calculando...</div>
+        </div>
       </div>
     </div>
 
   </div>
 
   <script>
-    lucide.createIcons();
     let userName = "", userClass = "", currentQuestionIndex = 0, userAnswers = [];
 
     const ancorasNomes = {
-      0: "Competência Técnica", 1: "Competência Gerencial", 2: "Autonomia", 
+      0: "Competência Técnica / Funcional", 1: "Competência Gerencial Geral", 2: "Autonomia / Independência", 
       3: "Segurança / Estabilidade", 4: "Criatividade Empreendedora", 
-      5: "Dedicação a uma Causa", 6: "Puro Desafio", 7: "Estilo de Vida"
+      5: "Dedicação a uma Causa / Serviço", 6: "Puro Desafio", 7: "Estilo de Vida"
     };
 
     const questions = [
       { text: "Quero ser extremamente bom na minha área técnica específica.", cat: 0 },
       { text: "Me motiva a ideia de liderar e gerenciar grandes equipes.", cat: 1 },
-      { text: "Eu prefiro trabalhar de forma livre, definindo meus próprios horários.", cat: 2 },
+      { text: "Eu prefiro trabalho livre, definindo meus próprios horários.", cat: 2 },
       { text: "Prefiro um emprego estável e seguro a assumir riscos de mercado.", cat: 3 },
       { text: "Sonho em construir e abrir meu próprio negócio do zero.", cat: 4 },
       { text: "Para mim, é crucial que meu trabalho ajude a sociedade.", cat: 5 },
       { text: "Me sinto motivado quando preciso resolver problemas quase impossíveis.", cat: 6 },
       { text: "Minha carreira deve se ajustar perfeitamente às minhas necessidades familiares.", cat: 7 },
-      { text: "Prefiro ser um especialista reconhecido do que um diretor geral.", cat: 0 },
-      { text: "Gosto de tomar decisões de alto impacto que influenciam a empresa inteira.", cat: 1 },
-      { text: "Regras corporativas rígidas e uniformes me incomodam muito.", cat: 2 },
-      { text: "Dou muito valor a benefícios de longo prazo e estabilidade.", cat: 3 },
-      { text: "Quero criar produtos ou serviços que tenham a minha identidade.", cat: 4 },
-      { text: "Não trabalharia em uma instituição que vai contra meus princípios morais.", cat: 5 },
-      { text: "Fico entediado com facilidade se as tarefas forem rotineiras.", cat: 6 },
-      { text: "Equilibrar trabalho e lazer é mais importante do que uma promoção.", cat: 7 },
-      { text: "Focar em resolver problemas técnicos complexos é o meu ponto forte.", cat: 0 },
-      { text: "Acho estimulante monitorar metas e a produtividade de outras pessoas.", cat: 1 },
-      { text: "Fico mais feliz quando trabalho sozinho sem supervisão direta.", cat: 2 },
-      { text: "Prefiro crescer dentro de uma mesma instituição sólida por anos.", cat: 3 },
-      { text: "Gosto de assumir riscos financeiros para testar novas ideias comerciais.", cat: 4 },
-      { text: "Quero usar minhas habilidades profissionais para fazer o bem.", cat: 5 },
-      { text: "Superar concorrentes e desafios difíceis me traz satisfação.", cat: 6 },
-      { text: "Gosto de empregos que permitam trabalhar em regime de home-office flexível.", cat: 7 },
-      { text: "Recuso cargos de liderança pura se me afastarem da minha área técnica.", cat: 0 },
-      { text: "Quero chegar a um cargo de alta diretoria executiva no futuro.", cat: 1 },
-      { text: "Me sinto sufocado se tiver que bater ponto no mesmo horário todo dia.", cat: 2 },
-      { text: "Saber que meu salário está garantido todo mês diminui minha ansiedade.", cat: 3 },
-      { text: "Para mim, criar algo inovador é o verdadeiro significado de sucesso.", cat: 4 },
-      { text: "Busco uma profissão que melhore diretamente a vida dos jovens ou da comunidade.", cat: 5 },
-      { text: "Vencer desafios complexos é o que mais me move.", cat: 6 },
-      { text: "Se um trabalho exigir que eu sacrifique minha vida pessoal, eu desisto.", cat: 7 },
+      { text: "Prefiro ser um specialist reconhecido do que um diretor geral.", cat: 0 },
