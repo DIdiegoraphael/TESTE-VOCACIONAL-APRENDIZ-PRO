@@ -3,112 +3,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teste das Âncoras de Carreira</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <title>Teste das Âncoras de Carreira - Aprendiz Pro</title>
+  <script src="https://tailwindcss.com"></script>
+  <!-- Fontes: Poppins para leitura leve e Press Start 2P para o estilo Arcade Gamer -->
   <link href="https://googleapis.com" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="https://jsdelivr.net"></script>
   <style>
-    * { font-family: 'Poppins', sans-serif; }
-    :root { --blue: #123A8C; --gold: #F4C542; --light: #EAF3FF; --dark: #0A0A0A; --muted: #DCEBFF; }
-    .screen { display: none; animation: fadeIn .4s ease; }
+    body { font-family: 'Poppins', sans-serif; background-color: #123A8C; }
+    .arcade-title { font-family: 'Press Start 2P', cursive; line-height: 1.5; text-shadow: 3px 3px 0px #0A0A0A; }
+    .screen { display: none; animation: fadeIn .5s cubic-bezier(0.4, 0, 0.2, 1); }
     .screen.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes slideIn { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
-    .q-card { animation: slideIn .35s ease; }
-    .likert-btn { transition: all .2s; background: #F8FCFF; color: #0A0A0A; border: 2px solid #E5E7EB; }
-    .likert-btn.selected { background: var(--blue); color: #fff; transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,87,217,.3); border-color: var(--blue); }
-    .progress-fill { transition: width .4s ease; }
-    .btn-primary { background: var(--blue); color: #fff; border-radius: 12px; padding: 14px 32px; font-weight: 600; transition: all .2s; border: none; cursor: pointer; }
-    .btn-primary:hover { background: #0046b3; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,87,217,.3); }
-    .btn-secondary { background: var(--gold); color: #0A0A0A; border: 2px solid var(--gold); border-radius: 12px; padding: 12px 28px; font-weight: 700; transition: all .2s; cursor: pointer; }
-    .btn-secondary:hover { background: #D9A900; }
-    .card { background: #F8FCFF; color: #0A0A0A; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.16); padding: 24px; }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.98) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    .likert-btn { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); background: #FFFFFF; color: #0A0A0A; border: 2px solid #E5E7EB; }
+    .likert-btn:hover { border-color: #123A8C; background: #F0F6FF; transform: translateY(-1px); }
+    .likert-btn.selected { background: #123A8C; color: #FFFFFF; transform: scale(1.02); box-shadow: 0 8px 20px rgba(18,58,140,0.25); border-color: #123A8C; }
+    .progress-fill { transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-glow { box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3); }
   </style>
 </head>
-<body class="min-h-screen w-full" style="background: rgb(18, 58, 140);">
-  <div class="w-full max-w-3xl mx-auto px-4 py-8">
+<body class="min-h-screen w-full flex items-center justify-center py-6 md:py-12 px-4 select-none text-gray-800">
+  <div class="w-full max-w-2xl">
    
    <!-- TELA 1: BOAS-VINDAS -->
    <div id="screen-welcome" class="screen active">
     <div class="text-center mb-8">
-     <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background:var(--light)">
-      <i data-lucide="compass" style="width:32px;height:32px;color:var(--blue)"></i>
+     <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-5 bg-[#F4C542] shadow-lg animate-bounce">
+      <i data-lucide="gamepad-2" class="w-8 h-8 text-[#123A8C]"></i>
      </div>
-     <h1 class="text-3xl md:text-4xl font-bold mb-3 text-white">TESTE VOCACIONAL<br>APRENDIZ PRO</h1>
-     <p class="text-lg text-blue-100 font-medium">Descubra a sua âncora de carreira e se desenvolva profissionalmente com propósito</p>
+     <!-- Título com a fonte Arcade Gamer solicitada -->
+     <h1 class="arcade-title text-xl md:text-2xl font-bold mb-4 text-[#F4C542]">
+       TESTE VOCACIONAL<br>APRENDIZ PRO
+     </h1>
+     <p class="text-base md:text-lg text-blue-100 font-light max-w-md mx-auto"> Descubra a sua âncora de carreira de um jeito dinâmico e direto ao ponto. </p>
     </div>
-    <div class="card mb-6">
-     <h2 class="text-xl font-bold mb-3 text-gray-900">O que é o teste vocacional Aprendiz Pro?</h2>
-     <p class="text-gray-700 leading-relaxed">O nosso teste vocacional é orientado pelo conceito das <strong>Âncoras de Carreira</strong>, modelo criado pelo psicólogo organizacional Edgar H. Schein, do MIT. Elas representam os valores, motivações e competências que guiam suas decisões profissionais. Este teste identifica qual das âncoras é dominante no seu perfil.</p>
+
+    <div class="bg-white rounded-3xl p-6 md:p-8 card-glow mb-6 border border-blue-900/10">
+     <h2 class="text-xl font-bold mb-3 text-[#123A8C] flex items-center gap-2">
+       <i data-lucide="info" class="w-5 h-5"></i> O que é o teste?
+     </h2>
+     <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+       Baseado no conceito internacional de Edgar Schein (MIT), este teste avalia suas verdadeiras motivações profissionais. Descubra o que te move no trabalho de forma rápida.
+     </p>
+     <div class="mt-5 pt-4 border-t border-gray-100 text-xs md:text-sm text-gray-500 flex items-center gap-2">
+       <i data-lucide="clock" class="w-4 h-4 text-[#F4C542]"></i> Leva apenas 10 minutos • 40 afirmações rápidas.
+     </div>
     </div>
-    <div class="card mb-8" style="border-left:4px solid var(--gold)">
-     <h3 class="font-bold mb-2 text-gray-900">Como responder</h3>
-     <p class="text-gray-700">Responda de forma espontânea, pensando na sua carreira ideal e nos seus valores fundamentais. Não pense apenas no seu momento atual.</p>
-    </div>
-    <div class="card mb-6">
-     <label for="respondent-name" class="block font-bold mb-2 text-gray-900">Nome do respondente (obrigatório)</label> 
-     <input id="respondent-name" type="text" required class="w-full rounded-xl border-2 border-gray-200 px-4 py-3 outline-none focus:border-blue-600" style="background:#F8FCFF;color:#0A0A0A">
+
+    <!-- Identificação Limpa do Usuário -->
+    <div class="bg-white rounded-3xl p-6 md:p-8 card-glow mb-8 space-y-4">
+     <div>
+       <label for="respondent-name" class="block font-semibold text-sm text-gray-700 mb-2">Seu Nome Completo</label> 
+       <input id="respondent-name" type="text" placeholder="Digite seu nome..." required class="w-full rounded-xl bg-gray-50 border-2 border-transparent px-4 py-3 outline-none transition-all focus:border-[#123A8C] focus:bg-white text-gray-900 font-medium">
+     </div>
      
-     <div class="mt-4 max-w-xs">
-      <label for="respondent-class" class="block text-sm font-bold mb-2 text-gray-900">Turma (obrigatório)</label> 
-      <input id="respondent-class" type="text" required placeholder="t01" class="w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-sm outline-none focus:border-blue-600" style="background:#F8FCFF;color:#0A0A0A">
-      <p class="mt-1 text-xs text-gray-500">Exemplo: t01</p>
+     <div class="w-full sm:w-1/2">
+      <label for="respondent-class" class="block font-semibold text-sm text-gray-700 mb-2">Sua Turma</label> 
+      <input id="respondent-class" type="text" placeholder="Ex: t01" required class="w-full rounded-xl bg-gray-50 border-2 border-transparent px-4 py-2 outline-none transition-all focus:border-[#123A8C] focus:bg-white text-gray-900 font-medium uppercase">
      </div>
     </div>
+
     <div class="text-center">
-     <button class="btn-secondary text-lg" onclick="startTest()">Iniciar Teste</button>
+     <button class="w-full sm:w-auto bg-[#F4C542] hover:bg-[#e0b334] text-[#123A8C] font-extrabold text-lg px-12 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0" onclick="startTest()">
+       COMEÇAR AGORA
+     </button>
     </div>
    </div>
 
-   <!-- TELA 2: QUESTIONÁRIO DIRECIONADO -->
+   <!-- TELA 2: CARD DO QUESTIONÁRIO -->
    <div id="screen-quiz" class="screen">
-     <div class="card mb-4 flex justify-between items-center py-3">
-       <span id="quiz-progress-text" class="font-bold text-gray-700">Questão 1 de 40</span>
-       <div class="w-1/2 bg-gray-200 rounded-full h-3">
-         <div id="quiz-progress-bar" class="progress-fill h-3 rounded-full" style="background:var(--blue); width: 2.5%;"></div>
+     <!-- Barra de Progresso Clean -->
+     <div class="bg-white/10 rounded-2xl p-4 mb-4 flex justify-between items-center backdrop-blur-sm">
+       <span id="quiz-progress-text" class="font-bold text-xs md:text-sm text-blue-100 tracking-wide">QUESTÃO 1 DE 40</span>
+       <div class="w-1/2 bg-white/20 rounded-full h-2.5 overflow-hidden">
+         <div id="quiz-progress-bar" class="progress-fill h-full bg-[#F4C542]" style="width: 2.5%;"></div>
        </div>
      </div>
-     <div class="card q-card mb-6">
-       <p id="question-text" class="text-xl font-medium text-gray-900 mb-6">Carregando pergunta...</p>
-       <div class="grid grid-cols-1 gap-3">
-         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left" onclick="selectScore(5)">5 - Discordo Totalmente</button>
-         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left" onclick="selectScore(4)">4 - Discordo Parcialmente</button>
-         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left" onclick="selectScore(3)">3 - Neutro / Não sei</button>
-         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left" onclick="selectScore(2)">2 - Concordo Parcialmente</button>
-         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left" onclick="selectScore(1)">1 - Concordo Totalmente</button>
+
+     <!-- Card de Pergunta Estilo Mobile App -->
+     <div class="bg-white rounded-3xl p-6 md:p-8 card-glow min-h-[380px] flex flex-col justify-between">
+       <div>
+         <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 flex items-center gap-1">
+           <i data-lucide="help-circle" class="w-4 h-4 text-[#123A8C]"></i> Avalie a afirmação:
+         </div>
+         <p id="question-text" class="text-lg md:text-xl font-semibold text-gray-800 leading-snug">Carregando pergunta...</p>
+       </div>
+
+       <!-- Escala Likert Otimizada Visualmente -->
+       <div class="grid grid-cols-1 gap-2.5 mt-6">
+         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left text-sm md:text-base flex items-center gap-3" onclick="selectScore(5)">
+           <span class="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center font-bold text-xs text-gray-500">5</span> Concordo Totalmente
+         </button>
+         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left text-sm md:text-base flex items-center gap-3" onclick="selectScore(4)">
+           <span class="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center font-bold text-xs text-gray-500">4</span> Concordo Parcialmente
+         </button>
+         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left text-sm md:text-base flex items-center gap-3" onclick="selectScore(3)">
+           <span class="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center font-bold text-xs text-gray-500">3</span> Neutro / Não sei
+         </button>
+         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left text-sm md:text-base flex items-center gap-3" onclick="selectScore(2)">
+           <span class="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center font-bold text-xs text-gray-500">2</span> Discordo Parcialmente
+         </button>
+         <button class="likert-btn py-3 px-4 rounded-xl font-medium text-left text-sm md:text-base flex items-center gap-3" onclick="selectScore(1)">
+           <span class="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center font-bold text-xs text-gray-500">1</span> Discordo Totalmente
+         </button>
        </div>
      </div>
    </div>
 
-   <!-- TELA 3: ENVIANDO DADOS (LOADING INVISÍVEL) -->
+   <!-- TELA 3: CARREGAMENTO DA PLANILHA -->
    <div id="screen-loading" class="screen text-center py-12">
-     <div class="card">
-       <h2 class="text-2xl font-bold mb-4">Processando seu Perfil...</h2>
-       <p class="text-gray-600 mb-6">Estamos computando suas respostas e salvando o resultado na planilha institucional.</p>
-       <div class="animate-spin inline-block w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full mb-4"></div>
+     <div class="bg-white rounded-3xl p-8 card-glow flex flex-col items-center justify-center space-y-4">
+       <div class="animate-spin inline-block w-12 h-12 border-4 border-[#123A8C] border-t-transparent rounded-full mb-2"></div>
+       <h2 class="text-2xl font-bold text-[#123A8C]">Processando Perfil...</h2>
+       <p class="text-gray-500 text-sm max-w-xs">Salvando seus resultados de forma direta e segura no banco de dados.</p>
      </div>
    </div>
 
-   <!-- TELA 4: RESULTADO FINAL -->
+   <!-- TELA 4: EXIBIÇÃO DE RESULTADO PREMIUM -->
    <div id="screen-result" class="screen">
-     <div class="card text-center mb-6">
-       <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 bg-green-100">
-         <i data-lucide="check-circle" style="width:32px;height:32px;color:green"></i>
+     <div class="bg-white rounded-3xl p-6 md:p-8 card-glow text-center mb-6">
+       <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 bg-green-50 text-green-500">
+         <i data-lucide="shield-check" class="w-8 h-8"></i>
        </div>
-       <h2 class="text-3xl font-bold text-gray-900 mb-2">Teste Concluído!</h2>
-       <p class="text-gray-600">Seus dados foram salvos com sucesso na planilha institucional.</p>
-     </div>
-     <div class="card">
-       <h3 class="text-xl font-bold mb-2">Sua Âncora Dominante é:</h3>
-       <div id="result-anchor" class="text-2xl font-black tracking-wide text-blue-800 p-4 bg-blue-50 rounded-xl mb-4 border-l-4 border-blue-600">Calculando...</div>
-       <p id="result-description" class="text-gray-700 leading-relaxed">Sua âncora representa seu principal motivador de carreira.</p>
+       <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-1">Perfil Concluído!</h2>
+       <p class="text-sm text-gray-400">Respostas computadas e enviadas com sucesso.</p>
+       
+       <div class="mt-6 p-6 bg-blue-50/50 rounded-2xl border-2 border-dashed border-blue-100">
+         <span class="text-xs font-bold text-[#123A8C] uppercase tracking-widest block mb-2">Sua Âncora Dominante é:</span>
+         <div id="result-anchor" class="text-xl md:text-2xl font-black text-[#123A8C] px-4 py-2 bg-white rounded-xl shadow-sm inline-block">Calculando...</div>
+       </div>
      </div>
    </div>
 
   </div>
 
   <script>
-    // Inicializa os ícones do Lucide
+    // Inicialização automática de elementos vetoriais Lucide
     lucide.createIcons();
 
     let userName = "";
@@ -116,7 +145,6 @@
     let currentQuestionIndex = 0;
     let userAnswers = [];
 
-    // Mapeamento das 40 questões para as 8 categorias tradicionais (5 questões por categoria)
     const ancorasNomes = {
       0: "Competência Técnica / Funcional",
       1: "Competência Gerencial Geral",
@@ -128,26 +156,10 @@
       7: "Estilo de Vida"
     };
 
-    // Banco de dados condensado das 40 afirmações para jovens
+    // Banco de questões atualizado para as 8 dimensões de Schein
     const questions = [
       { text: "Quero ser extremamente bom na minha área técnica específica.", cat: 0 },
       { text: "Me motiva a ideia de liderar e gerenciar grandes equipes.", cat: 1 },
       { text: "Eu prefiro trabalhar de forma livre, definindo meus próprios horários.", cat: 2 },
       { text: "Prefiro um emprego estável e seguro a assumir riscos de mercado.", cat: 3 },
       { text: "Sonho em construir e abrir meu próprio negócio do zero.", cat: 4 },
-      { text: "Para mim, é crucial que meu trabalho ajude a sociedade.", cat: 5 },
-      { text: "Me sinto motivado quando preciso resolver problemas quase impossíveis.", cat: 6 },
-      { text: "Minha carreira deve se ajustar perfeitamente às minhas necessidades familiares.", cat: 7 },
-      { text: "Prefiro ser um especialista reconhecido do que um diretor geral.", cat: 0 },
-      { text: "Gosto de tomar decisões de alto impacto que influenciam a empresa inteira.", cat: 1 },
-      { text: "Regras corporativas rígidas e uniformes me incomodam muito.", cat: 2 },
-      { text: "Dou muito valor a benefícios de longo prazo e estabilidade.", cat: 3 },
-      { text: "Quero criar produtos ou serviços que tenham a minha identidade.", cat: 4 },
-      { text: "Não trabalharia em uma instituição que vai contra meus princípios morais.", cat: 5 },
-      { text: "Fico entediado com facilidade se as tarefas forem rotineiras.", cat: 6 },
-      { text: "Equilibrar trabalho e lazer é mais importante do que uma promoção.", cat: 7 },
-      { text: "Focar em resolver problemas técnicos complexos é o meu ponto forte.", cat: 0 },
-      { text: "Acho estimulante monitorar metas e a produtividade de outras pessoas.", cat: 1 },
-      { text: "Fico mais feliz quando trabalho sozinho sem supervisão direta.", cat: 2 },
-      { text: "Prefiro crescer dentro de uma mesma instituição sólida por anos.", cat: 3 },
-      { text: "Gosto de assumir riscos financeiros para testar novas ideias comerciais.", cat: 4 },
