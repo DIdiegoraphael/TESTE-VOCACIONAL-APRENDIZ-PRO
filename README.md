@@ -1,7 +1,6 @@
 <link href="https://googleapis.com" rel="stylesheet">
 
 <style>
-  /* DESIGN CONTEMPORÂNEO PARA JOVENS APRENDIZES (18-21 ANOS) */
   * {
     box-sizing: border-box;
     margin: 0;
@@ -10,19 +9,19 @@
   }
   
   body {
-    background-color: #0b1528; /* Azul escuro tecnológico, muito usado em apps modernos */
+    background-color: #0b1528;
     color: #f1f5f9;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 60px 20px;
+    padding: 40px 20px;
   }
 
   .main-container {
     width: 100%;
-    max-width: 800px; /* Caixas amplas e confortáveis para leitura */
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,7 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
   }
 
@@ -45,23 +44,11 @@
     font-size: 34px;
   }
 
-  .title-arcade {
-    font-family: 'Press Start 2P', monospace;
-    color: #f4c542; /* Mantido o amarelo de destaque */
-    text-align: center;
-    font-size: 30px;
-    line-height: 1.5;
-    margin-bottom: 16px;
-    letter-spacing: 1px;
-    text-shadow: 3px 3px 0px #020617;
-    width: 100%;
-  }
-
   .tagline {
     text-align: center;
     font-size: 18px;
     color: #94a3b8;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     max-width: 600px;
     line-height: 1.5;
     font-weight: 400;
@@ -76,7 +63,6 @@
     display: block;
   }
 
-  /* Cartões Brancos com Estética Premium e Limpa */
   .content-card {
     background-color: #ffffff;
     color: #0f172a;
@@ -84,7 +70,6 @@
     padding: 40px;
     margin-bottom: 28px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .content-card h2, .content-card h3 {
@@ -92,17 +77,14 @@
     font-weight: 700;
     margin-bottom: 16px;
     color: #0f172a;
-    letter-spacing: -0.5px;
   }
 
   .content-card p {
     font-size: 16px;
     line-height: 1.7;
     color: #334155;
-    font-weight: 400;
   }
 
-  /* Inputs Modernos Estilo Tech */
   .input-wrapper {
     margin-bottom: 28px;
   }
@@ -123,15 +105,12 @@
     padding: 16px 20px;
     color: #0f172a;
     font-size: 16px;
-    font-weight: 500;
     outline: none;
-    transition: all 0.2s ease;
   }
 
   .input-field:focus {
     border-color: #3b82f6;
     background-color: #ffffff;
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
   }
 
   .size-class {
@@ -145,11 +124,9 @@
     margin-top: 6px;
   }
 
-  /* Botão Principal Estilo Chamativo */
   .action-container {
     text-align: center;
     width: 100%;
-    margin-top: 20px;
   }
 
   .btn-submit {
@@ -161,19 +138,14 @@
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.2s ease;
     box-shadow: 0 6px 20px rgba(244, 197, 66, 0.3);
   }
 
   .btn-submit:hover {
     background-color: #e0b334;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(244, 197, 66, 0.4);
   }
 
-  /* Componentes do Quiz */
   .quiz-status {
     display: flex;
     justify-content: space-between;
@@ -182,7 +154,6 @@
     font-weight: 600;
     color: #94a3b8;
     margin-bottom: 28px;
-    width: 100%;
   }
 
   .track-bg {
@@ -212,14 +183,11 @@
     font-weight: 500;
     cursor: pointer;
     margin-bottom: 14px;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
   }
 
   .option-btn:hover {
     border-color: #3b82f6;
     background-color: #f8fafc;
-    transform: translateX(4px);
   }
 
   .loader-spinner {
@@ -240,9 +208,10 @@
 
 <div class="main-container">
   
+  <!-- BÚSSOLA IDENTIFICADORA DO SEU PROJETO -->
   <div class="avatar-badge"></div>
 
-  <h1 class="title-arcade">TESTE VOCACIONAL<br>APRENDIZ PRO</h1>
+  <!-- REMOVIDO O TÍTULO TEXTUAL DAQUI PARA ELIMINAR DUPLICIDADE COM A BARRA DA FERRAMENTA -->
   <p class="tagline">Descubra a sua âncora de carreira e se desenvolva profissionalmente com propósito</p>
 
   <!-- TELA 1: BOAS-VINDAS -->
@@ -325,7 +294,7 @@
   const ancorasNomes = {
     0: "Competência Técnica / Funcional", 1: "Competência Gerencial Geral", 2: "Autonomia / Independência", 
     3: "Segurança / Estabilidade", 4: "Criatividade Empreendedora", 
-    5: "Dedicação a uma Causa / Serviço", 6: "Puro Desafio", 7: "Estilo de Vida"
+    5: "Dedicação a uma Causa / Service", 6: "Puro Desafio", 7: "Estilo de Vida"
   };
 
   const questions = [
@@ -336,3 +305,15 @@
     { text: "Sonho em construir e abrir meu próprio negócio do zero.", cat: 4 },
     { text: "Para mim, é crucial que meu trabalho ajude a sociedade.", cat: 5 },
     { text: "Me sinto motivado quando preciso resolver problemas quase impossíveis.", cat: 6 },
+    { text: "Minha carreira deve se ajustar perfeitamente às minhas necessidades familiares.", cat: 7 },
+    { text: "Prefiro ser um especialista reconhecido do que um diretor geral.", cat: 0 },
+    { text: "Gosto de tomar decisões de alto impacto que influenciam a empresa inteira.", cat: 1 },
+    { text: "Regras corporativas rígidas e uniformes me incomodam muito.", cat: 2 },
+    { text: "Dou muito valor a benefícios de longo prazo e estabilidade.", cat: 3 },
+    { text: "Quero criar produtos ou serviços que tenham a minha identidade.", cat: 4 },
+    { text: "Não trabalharia em uma instituição que vai contra meus princípios morais.", cat: 5 },
+    { text: "Fico entediado com facilidade se as tarefas forem rotineiras.", cat: 6 },
+    { text: "Equilibrar trabalho e lazer é mais importante do que uma promoção.", cat: 7 },
+    { text: "Focar em resolver problemas técnicos complexos é o meu ponto forte.", cat: 0 },
+    { text: "Acho estimulante monitorar metas e a produtividade de outras pessoas.", cat: 1 },
+    { text: "Fico mais feliz quando trabalho sozinho sem supervisão direta.", cat: 2 },
